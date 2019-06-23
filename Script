@@ -1,0 +1,26 @@
+--Call number 1
+HSET appel_1 id "g58c47a8-487d-22a5-9e1d-ab87fdb8b5b3"
+HSET appel_1 calling_hour "21h44"
+HSET appel_1 number "0781862196"
+HSET appel_1 statut "Not assigned"
+HSET appel_1 duration 95
+HSET appel_1 operator "FREE"
+HSET appel_1 description "Emmanuel Macron appelle Brigitte"
+
+-- Call number 2
+HSET appel_2 id "8ac40ba4-45a1-22c7-cd5c-af2d6ab3038a"
+HSET appel_2 calling_hour "23h21"
+HSET appel_2 number "07854578456"
+HSET appel_2 statut "Not assigned"
+HSET appel_2 duration 10
+HSET appel_2 operator "FREE"
+HSET appel_2 description "Appel entre Rémy et sa copine"
+
+-- On ajoute les appels 1 et 2 dans la liste d'appel
+
+LPUSH liste_appels appel_1
+LPUSH liste_appels appel_2
+
+-- Affection du statut "In progress" à l'appel n°2
+
+HSET appel_2 statut "In progress"
